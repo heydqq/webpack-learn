@@ -6,14 +6,23 @@ module.exports = {
     app: './src/index.js',
   },
   output: {
-    filename: '[name].bundle.js',
-    chunkFilename:'[name].bundle.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
   },
-  devtool: 'inline-source-map',
-  devServer:{
-    contentBase:'./dist',
+  optimization:{
+    moduleIds:'hashed',
+    runtimeChunk:'single',
+    splitChunks: {
+      cacheGroups:{
+        vendor:{
+          test:/[\\/]node_modules[\\/]/,
+          name:'vendors',
+          chunks:'all'
+        }
+      },
+    },
   },
+  devtool: 'inline-source-map',
   module:{
     rules:[
       {
