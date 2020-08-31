@@ -9,6 +9,7 @@
     "start": "webpack-dev-server --config webpack.dqq.js --open",
     "server": "node server.js"
   },
+  "main": "dist/webpack-numbers.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
